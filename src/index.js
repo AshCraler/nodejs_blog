@@ -2,11 +2,17 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const handlebars = require('express-handlebars');
+
+const routes = require('./routes/index.route');
+const db = require('./config/db/index');
+
+//Connect to database
+db.connect();
+
 const app = express();
 const port = 3000;
 
-const routes = require('./routes/index.route');
-
+//Set static files
 app.use(express.static(path.join(__dirname, 'public')));
 
 //HTTP Logger
@@ -20,11 +26,11 @@ app.engine(
     }),
 );
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, './resources/views'));
+app.set('views', path.join(__dirname, './resources', 'views'));
 
 //Routes init
 routes(app);
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`App listening on port ${port}`);
 });

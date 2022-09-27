@@ -4,14 +4,14 @@
   "description": "blog web with nodejs",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --inspect src/index.js",
-    "watch": "node-sass -w src/resources/scss/ -o src/public/css/",
     "mongodb": "mongod --dbpath database/mongodb-test-db",
-    "beautify": "prettier --single-quote --trailing-comma all --tab-width 4 --write 'src/**/*.{js,json,scss}'",
+    "beautify": "prettier --single-quote --trailing-comma all --tab-width 4 --write 'src/**/*.{js,json,scss,hbs}'",
+    "watch": "node-sass -w src/resources/scss/ -o src/public/css/",
+    "start": "nodemon --inspect src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "lint-staged": {
-    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+    "src/**/*.{js,json,scss,hbs}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,8 @@
   "homepage": "https://github.com/AshCraler/nodejs_blog#readme",
   "dependencies": {
     "express": "^4.18.1",
-    "express-handlebars": "^6.0.6"
+    "express-handlebars": "^6.0.6",
+    "mongoose": "^6.6.2"
   },
   "devDependencies": {
     "husky": "^8.0.1",
