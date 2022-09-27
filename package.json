@@ -7,7 +7,14 @@
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass -w src/resources/scss/ -o src/public/css/",
     "mongodb": "mongod --dbpath database/mongodb-test-db",
+    "beautify": "prettier --single-quote --trailing-comma all --tab-width 4 --write 'src/**/*.{js,json,scss}'",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
+  "hooks": {
+    "pre-commit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -30,8 +37,11 @@
     "express-handlebars": "^6.0.6"
   },
   "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "morgan": "^1.10.0",
     "node-sass": "^7.0.3",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1"
   }
 }
