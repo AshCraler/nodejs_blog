@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass -w src/resources/scss/ -o src/public/css/",
+    "mongodb": "mongod --dbpath database/mongodb-test-db",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
