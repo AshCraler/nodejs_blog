@@ -1,5 +1,10 @@
 .vscode/
 
+# internal sources and library
 src/public/css/
 database/
 node_modules/
+
+# external library
+# run npx husky install to get the folder below
+.husky/_/
